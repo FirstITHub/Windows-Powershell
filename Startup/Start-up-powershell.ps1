@@ -7,7 +7,7 @@ Write-Host "Heey $userloggedin. Success vandaag!"
 
 #The other scripts that is running in here comes one at the time at the place here#
 #Get the modules
-
+$modules = Get-Module
 ##line of script to install the modules
 
 #This script is the first in line to start te powershell of First NV
