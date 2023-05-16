@@ -9,7 +9,9 @@ Write-Host "Heey $userloggedin. Success vandaag!"
 #Get the modules
 $modules = Get-Module
 ##line of script to install the modules
-
+if ($module -in $modules){
+    Get-Module
+}
 #This script is the first in line to start te powershell of First NV
 . "./Connect-M365.ps1"
 
