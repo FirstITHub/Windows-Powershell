@@ -2,8 +2,18 @@
 $userloggedin = (Get-ItemProperty "HKCU:\\Software\\Microsoft\\Office\\Common\\UserInfo\\").UserName
 Write-Host "Heey $userloggedin. Success vandaag!"
 
-#This script is the first in line to start te powershell of Company Name#
+#Get-Path#Baseline script will removed if script is finished
 ."./baseline-functies.ps1"
+
 #The other scripts that is running in here comes one at the time at the place here#
 #Get the modules
 ##line of script to install the modules
+
+#This script is the first in line to start te powershell of First NV
+. "./Connect-M365.ps1"
+
+
+function prompt {
+    $p = Split-Path -leaf -path (Get-Location)
+    "$p> "
+   }
