@@ -18,7 +18,7 @@ $modulesToInstall = @(
 $modulesToInstall | ForEach-Object {
     $moduleName = $_
     if ($moduleName -notin $modules) {
-        Install-Module -Name $moduleName -Force
+        Install-Module -Name $moduleName -AcceptLicense:$true -Confirm:$false
         import-module -name $modulename
     }
     else {
@@ -41,4 +41,7 @@ $MsolDomains = Get-MsolDomain -TenantId $tenantid
 
 
 
-Write-Host "You are logged in on $tenantname with $tenantid and $domainname"
+Write-Host "You are logged in on"
+Write-Host "Tenant: $tenantname"
+Write-Host "TenantID: $tenantid"
+Write-host ".onmicrosoft domain: $domainname"
