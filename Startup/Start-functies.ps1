@@ -18,7 +18,7 @@ $modulesToInstall = @(
 $modulesToInstall | ForEach-Object {
     $moduleName = $_
     if ($moduleName -notin $modules) {
-        Install-Module -Name $moduleName
+        Install-Module -Name $moduleName -Force
         import-module -name $modulename
     }
     else {
