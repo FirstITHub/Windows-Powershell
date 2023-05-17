@@ -11,8 +11,8 @@ Write-Host "Heey $userloggedin. Success vandaag!"
 $modules = Get-Module
 
 $modulesToInstall = @(
-    "Module1",
-    "Module2",
+    "MSOnline",
+    "AzureAD",
     "Module3"
 )
 
