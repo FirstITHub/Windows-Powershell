@@ -27,8 +27,7 @@ $modulesToInstall | ForEach-Object {
 
 #This script is the first in line to start te powershell of First NV
 Connect-AzureAD
-
-#Get-info of tenant were are you working
+#get-info of the logged in tenant
 $tenantname = (Get-AzureADTenantDetail).Displayname
 $tenantid = (Get-AzureADTenantDetail).objectid
 $MsolDomains = Get-MsolDomain -TenantId $tenantid
@@ -39,7 +38,7 @@ $MsolDomains = Get-MsolDomain -TenantId $tenantid
             Select-Object -ExpandProperty Name |
             Select-Object -First 1
 
-
+#write it out
 
 Write-Host "You are logged in on"
 Write-Host "Tenant: $tenantname"
@@ -50,3 +49,4 @@ Write-host ".onmicrosoft domain: $domainname"
 . "./start-menu.ps1"
 
 #get-tenantinfo
+. "./get-tenant.ps1"
