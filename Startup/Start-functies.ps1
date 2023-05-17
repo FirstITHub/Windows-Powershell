@@ -1,7 +1,7 @@
 #Greetings of the user
 $userloggedin = (Get-ItemProperty "HKCU:\\Software\\Microsoft\\Office\\Common\\UserInfo\\").UserName
 Write-Host "Heey $userloggedin. Success vandaag!"
-
+$upn = "sjoerd.kanon-a@first.eu"
 
 #The other scripts that is running in here comes one at the time at the place here#
 #Get the modules
@@ -26,7 +26,7 @@ $modulesToInstall | ForEach-Object {
 }
 
 #This script is the first in line to start te powershell of First NV
-Connect-AzureAD -
+$null = (Connect-AzureAD -AccountId $upn)
 #get-info of the logged in tenant
 $tenantname = (Get-AzureADTenantDetail).Displayname
 $tenantid = (Get-AzureADTenantDetail).objectid
