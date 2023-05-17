@@ -43,10 +43,10 @@ $MsolDomains = Get-MsolDomain -TenantId $tenantid
 Write-Host "You are logged in on"
 Write-Host "Tenant: $tenantname"
 Write-Host "TenantID: $tenantid"
-Write-host ".onmicrosoft domain: $domainname"
+Write-host "Domain: $domainname"
 
 #load menu
-cd "C:\Users\sjoerd.kanon\Github\Windows-Powershell\devel\startup\scripts-to-help-startup"
+Set-Location "C:\Users\sjoerd.kanon\Github\Windows-Powershell\devel\startup\scripts-to-help-startup"
 #. "./start-menu.ps1"
 
 #get-tenantinfo
