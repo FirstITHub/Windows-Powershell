@@ -28,5 +28,14 @@ $modulesToInstall | ForEach-Object {
 #Get-info of tenant were are you working
 $tenantname = (Get-AzureADTenantDetail).Displayname
 $tenantid = (Get-AzureADTenantDetail).objectid
-$tenantdomain = (Get-AzureADTenantDetail).Verifieddomain
-Write-Host = "You are logged in on $tenantname with $tenantid and $tenantdomain"
+$MsolDomains = Get-MsolDomain -TenantId $tenantid
+
+        $regex = '^[^.]*\.onmicrosoft\.com$'
+        $Domainname = $MsolDomains |
+            Where-Object Name -Match $regex |
+            Select-Object -ExpandProperty Name |
+            Select-Object -First 1
+
+
+
+Write-Host "You are logged in on $tenantname with $tenantid and $domainname"
