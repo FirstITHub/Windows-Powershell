@@ -26,4 +26,7 @@ $modulesToInstall | ForEach-Object {
 . "./Connect-M365.ps1"
 
 #Get-info of tenant were are you working
-Write-Host = You are working on $tenant
+$tenantname = (Get-AzureADTenantDetail).Displayname
+$tenantid = (Get-AzureADTenantDetail).objectid
+$tenantdomain = (Get-AzureADTenantDetail).Verifieddomain
+Write-Host = "You are logged in on $tenantname with $tenantid and $tenantdomain"
