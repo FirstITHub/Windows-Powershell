@@ -13,7 +13,7 @@ $modules = Get-Module
 $modulesToInstall = @(
     "",
     "AzureAD",
-    "Module3"
+    ""
 )
 
 # Install modules if they are not already present
