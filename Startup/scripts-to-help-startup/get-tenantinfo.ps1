@@ -1,11 +1,19 @@
 function f-gettenant
      {
+      $tenantname = (Get-AzureADTenantDetail).Displayname
+      $tenantid = (Get-AzureADTenantDetail).objectid
+      $MsolDomains = Get-MsolDomain -TenantId $tenantid
       
-      $global:cid = $Customers.tenantid
-    $Customers = @()
-    $Customers = @(Get-MsolPartnerContract -DomainName $domain)
-    Write-Host "You are logged in on"
-    Write-Host "Tenant: $($Customers.name)"
-    Write-Host "TenantID: $cid"
-    Write-host "domain: $domainname"
+              $regex = '^[^.]*\.onmicrosoft\.com$'
+              $Domainname = $MsolDomains |
+                  Where-Object Name -Match $regex |
+                  Select-Object -ExpandProperty Name |
+                  Select-Object -First 1
+      
+      #write it out
+      
+      Write-Host "You are logged in on"
+      Write-Host "Tenant: $tenantname"
+      Write-Host "TenantID: $tenantid"
+      Write-host ".onmicrosoft domain: $domainname"
     }   
