@@ -7,11 +7,23 @@ Write-Host "Heey $userloggedin. Success vandaag!"
 
 #The other scripts that is running in here comes one at the time at the place here#
 #Get the modules
+# List of modules to install
 $modules = Get-Module
-##line of script to install the modules
-if ($module -in $modules){
-    Get-Module
+
+$modulesToInstall = @(
+    "Module1",
+    "Module2",
+    "Module3"
+)
+
+# Install modules if they are not already present
+$modulesToInstall | ForEach-Object {
+    $moduleName = $_
+    if ($moduleName -notin $modules) {
+        Install-Module -Name $moduleName -Force
+    }
 }
+
 #This script is the first in line to start te powershell of First NV
 . "./Connect-M365.ps1"
 
