@@ -46,10 +46,11 @@ Write-Host "TenantID: $tenantid"
 Write-host ".onmicrosoft domain: $domainname"
 
 #load menu
-#. "./script-to-help-startup/start-menu.ps1"
+cd "C:\Users\sjoerd.kanon\Github\Windows-Powershell\devel\startup\scripts-to-help-startup"
+#. "./start-menu.ps1"
 
 #get-tenantinfo
-cd "script-to-help-startup/"
+cd "C:\Users\sjoerd.kanon\Github\Windows-Powershell\devel\startup\scripts-to-help-startup"
 . "./get-tenantinfo.ps1"
 
 #load-tenant
