@@ -46,7 +46,7 @@ Write-Host "TenantID: $tenantid"
 Write-host ".onmicrosoft domain: $domainname"
 
 #load menu
-. "./script-to-help-startup/start-menu.ps1"
+#. "./script-to-help-startup/start-menu.ps1"
 
 #get-tenantinfo
 . "./script-to-help-startup/get-tenantinfo.ps1"
