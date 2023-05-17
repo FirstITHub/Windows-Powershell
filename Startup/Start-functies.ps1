@@ -49,7 +49,8 @@ Write-host ".onmicrosoft domain: $domainname"
 #. "./script-to-help-startup/start-menu.ps1"
 
 #get-tenantinfo
-. "./script-to-help-startup/get-tenantinfo.ps1"
+cd "script-to-help-startup/"
+. "./get-tenantinfo.ps1"
 
 #load-tenant
 . "./script-to-help-startup/set-tenant.ps1"
