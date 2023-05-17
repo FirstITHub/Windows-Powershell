@@ -1,5 +1,7 @@
 function f-gettenant
      {
+      
+      $global:cid = $Customers.tenantid
       $domainname = $domain
       $global:connectmsoldomain = $domainname
     $Customers = @()
