@@ -15,5 +15,5 @@ function f-gettenant
       Write-Host "You are logged in on"
       Write-Host "Tenant: $tenantname"
       Write-Host "TenantID: $tenantid"
-      Write-host ".onmicrosoft domain: $domainname"
+      Write-host "Domain: $domainname"
     }   
