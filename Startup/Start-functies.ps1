@@ -26,7 +26,7 @@ $modulesToInstall | ForEach-Object {
 }
 
 #This script is the first in line to start te powershell of First NV
-Connect-AzureAD
+Connect-AzureAD -
 #get-info of the logged in tenant
 $tenantname = (Get-AzureADTenantDetail).Displayname
 $tenantid = (Get-AzureADTenantDetail).objectid
