@@ -10,7 +10,7 @@ $modules = Get-Module
 
 $modulesToInstall = @(
     "MSGraph",
-    "AzureAD",
+    "AzureADPreview",
     "ExchangeOnlineManagement"
 )
 
