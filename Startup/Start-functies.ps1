@@ -48,3 +48,5 @@ Write-host ".onmicrosoft domain: $domainname"
 
 #load menu
 . "./start-menu.ps1"
+
+#get-tenantinfo
