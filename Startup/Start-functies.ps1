@@ -50,8 +50,7 @@ cd "C:\Users\sjoerd.kanon\Github\Windows-Powershell\devel\startup\scripts-to-hel
 #. "./start-menu.ps1"
 
 #get-tenantinfo
-cd "C:\Users\sjoerd.kanon\Github\Windows-Powershell\devel\startup\scripts-to-help-startup"
 . "./get-tenantinfo.ps1"
 
 #load-tenant
-. "./script-to-help-startup/set-tenant.ps1"
+. "./set-tenant.ps1"
