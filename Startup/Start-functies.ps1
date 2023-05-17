@@ -18,12 +18,12 @@ $modulesToInstall = @(
 $modulesToInstall | ForEach-Object {
     $moduleName = $_
     if ($moduleName -notin $modules) {
-        Install-Module -Name $moduleName -Force
+        Install-Module -Name $moduleName
     }
 }
 
 #This script is the first in line to start te powershell of First NV
-. "./Connect-M365.ps1"
+#. "./Connect-M365.ps1"
 
 #Get-info of tenant were are you working
 $tenantname = (Get-AzureADTenantDetail).Displayname
