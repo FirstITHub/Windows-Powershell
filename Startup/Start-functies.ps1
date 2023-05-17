@@ -26,7 +26,7 @@ $modulesToInstall | ForEach-Object {
 }
 
 #This script is the first in line to start te powershell of First NV
-#. "./Connect-M365.ps1"
+Connect-AzureAD
 
 #Get-info of tenant were are you working
 $tenantname = (Get-AzureADTenantDetail).Displayname
@@ -45,3 +45,6 @@ Write-Host "You are logged in on"
 Write-Host "Tenant: $tenantname"
 Write-Host "TenantID: $tenantid"
 Write-host ".onmicrosoft domain: $domainname"
+
+#Start Functies
+. ""
