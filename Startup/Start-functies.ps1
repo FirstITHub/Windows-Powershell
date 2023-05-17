@@ -11,9 +11,9 @@ Write-Host "Heey $userloggedin. Success vandaag!"
 $modules = Get-Module
 
 $modulesToInstall = @(
-    "",
+    "MSGraph",
     "AzureAD",
-    ""
+    "ExchangeOnlineManagement"
 )
 
 # Install modules if they are not already present
