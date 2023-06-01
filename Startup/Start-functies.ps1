@@ -1,7 +1,7 @@
 #Greetings of the user
 $userloggedin = (Get-ItemProperty "HKCU:\\Software\\Microsoft\\Office\\Common\\UserInfo\\").UserName
 Write-Host "Heey $userloggedin. Success vandaag!"
-$upn = "sjoerd.kanon-a@first.eu"
+$upn = "sjoerd.kanon-a@first.eu" #change this before run
 
 #The other scripts that is running in here comes one at the time at the place here#
 #Get the modules
@@ -61,4 +61,4 @@ Set-Location "../../"
 #here comes different module scripts to run
 
 #Exchange
-. "./exchange-start.ps1" #functions for exchange to run
+#. "./exchange-start.ps1" #functions for exchange to run
