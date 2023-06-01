@@ -26,7 +26,7 @@ $modulesToInstall | ForEach-Object {
 }
 
 #This script is the first in line to start te powershell of First NV
-$null = (Connect-AzureAD -AccountId $upn)
+$null = (Connect-AzureAD)
 #get-info of the logged in tenant
 $tenantname = (Get-AzureADTenantDetail).Displayname
 $tenantid = (Get-AzureADTenantDetail).objectid
@@ -46,7 +46,7 @@ Write-Host "TenantID: $tenantid"
 Write-host "Domain: $domainname"
 
 #load menu
-Set-Location "C:\Users\sjoerd.kanon\Github\Windows-Powershell\devel\startup\scripts-to-help-startup"
+Set-Location "Startup/scripts-to-help-startup"
 #. "./start-menu.ps1"
 
 #get-tenantinfo
@@ -54,3 +54,12 @@ Set-Location "C:\Users\sjoerd.kanon\Github\Windows-Powershell\devel\startup\scri
 
 #load-tenant
 . "./set-tenant.ps1"
+
+#set-location to default path
+Set-Location "../../"
+
+#here comes different module scripts to run
+
+#Exchange
+. "./exchange-start.ps1" #functions for exchange to run
+
