@@ -62,4 +62,3 @@ Set-Location "../../"
 
 #Exchange
 . "./exchange-start.ps1" #functions for exchange to run
-
