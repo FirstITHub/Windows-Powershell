@@ -46,7 +46,7 @@ Write-Host "TenantID: $tenantid"
 Write-host "Domain: $domainname"
 
 #load menu
-Set-Location "Startup/scripts-to-help-startup"
+Set-Location "/scripts-to-help-startup"
 #. "./start-menu.ps1"
 
 #get-tenantinfo
