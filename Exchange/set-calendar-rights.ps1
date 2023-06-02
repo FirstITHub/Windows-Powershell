@@ -6,7 +6,6 @@ Write-Host "Je krijgt nu vragen over welke gebruiker (ALLEEN DE SHORT USERNAME) 
 $user = Read-Host "Welke gebruiker krijgt de agenda rechten"
 $userrights = Read-Host "Welke agenda krijgt de user rechten"
 Write-Host "De rechten die je kan geven zijn:
-- FullAccess: Grants full access to the calendar, allowing the user to read, create, modify, and delete calendar items.
 - Editor: Provides the ability to read, create, modify, and delete calendar items.
 - Author: Allows the user to create and modify calendar items but not delete them.
 - Reviewer: Grants read-only access to calendar items.
