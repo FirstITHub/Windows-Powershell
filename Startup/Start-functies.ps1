@@ -12,14 +12,14 @@ $modulesToInstall = @(
     "MSGraph",
     "AzureADPreview",
     "ExchangeOnlineManagement",
-    "PartnerCenter"
+    "msonline"
 )
 
 # Install modules if they are not already present
 $modulesToInstall | ForEach-Object {
     $moduleName = $_
     if ($moduleName -notin $modules) {
-        Install-Module -Name $moduleName -AcceptLicense:$true -Confirm:$false
+        Install-Module -Name $moduleName -AcceptLicense:$true -Confirm:$true
         import-module -name $modulename
     }
     else {
@@ -28,6 +28,7 @@ $modulesToInstall | ForEach-Object {
 
 #This script is the first in line to start te powershell of First NV
 $null = (Connect-AzureAD)
+$null = (Connect-msolservice)
 #get-info of the logged in tenant
 $tenantname = (Get-AzureADTenantDetail).Displayname
 $tenantid = (Get-AzureADTenantDetail).objectid
