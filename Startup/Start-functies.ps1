@@ -30,7 +30,7 @@ $null = (Connect-AzureAD)
 #get-info of the logged in tenant
 $tenantname = (Get-AzureADTenantDetail).Displayname
 $tenantid = (Get-AzureADTenantDetail).objectid
-$MsolDomains = Get-MsolDomain -TenantId $tenantid
+$MsolDomains = (Get-AzureADTenantDetail).VerifiedDomains
 
         $regex = '^[^.]*\.onmicrosoft\.com$'
         $Domainname = $MsolDomains |
