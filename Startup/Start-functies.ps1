@@ -11,7 +11,8 @@ $modules = Get-Module
 $modulesToInstall = @(
     "MSGraph",
     "AzureADPreview",
-    "ExchangeOnlineManagement"
+    "ExchangeOnlineManagement",
+    "PartnerCenter"
 )
 
 # Install modules if they are not already present
