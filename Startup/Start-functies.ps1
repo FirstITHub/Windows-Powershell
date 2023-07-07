@@ -19,7 +19,7 @@ $modulesToInstall = @(
 $modulesToInstall | ForEach-Object {
     $moduleName = $_
     if ($moduleName -notin $modules) {
-        Install-Module -Name $moduleName -AcceptLicense:$true -Confirm:$true
+        Install-Module -Name $moduleName -AcceptLicense:$false -Confirm:$false
         import-module -name $modulename
     }
     else {
@@ -48,14 +48,14 @@ Write-Host "TenantID: $tenantid"
 Write-host "Domain: $domainname"
 
 #load menu
-Set-Location "./scripts-to-help-startup"
+Set-Location "$env:OneDriveCommercial\Github\development\Windows-Powershell\Startup\scripts-to-help-startup"
 #. "./start-menu.ps1"
 
 #get-tenantinfo
-. "./get-tenantinfo.ps1"
+./get-tenantinfo.ps1
 
 #load-tenant
-. "./set-tenant.ps1"
+./set-tenant.ps1
 
 #set-location to default path
 Set-Location "../../"
@@ -64,3 +64,5 @@ Set-Location "../../"
 
 #Exchange
 #. "./exchange-start.ps1" #functions for exchange to run
+
+
