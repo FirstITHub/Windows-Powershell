@@ -1,4 +1,6 @@
-$Mailboxes = Get-Mailbox -ResultSize Unlimited -RecipientTypeDetails UserMailbox | Where-Object { $_.alias -ne "admin" }
+$domain = Get-AcceptedDomain | Where-Object { $_.Default -eq $true }
+$usertoexclude = Read-Host "Welke Alias niet"
+$Mailboxes = Get-Mailbox -ResultSize Unlimited -RecipientTypeDetails UserMailbox | Where-Object { $_.alias -ne $usertoexclude }
 
 $Mailboxes | Select-Object DisplayName, UserPrincipalName, RecipientTypeDetails | Export-Csv -Path "C:\temp\File.csv" -NoTypeInformation
 
@@ -28,7 +30,7 @@ $endDate = Get-Date "2023-07-31 19:00:00"
 foreach ($mailbox in $Mailboxes){
     $identity = $mailbox.UserPrincipalName
     Set-MailboxAutoReplyConfiguration -Identity $identity -AutoReplyState Scheduled -StartTime $startDate -EndTime $endDate -ExternalMessage $oomMessage
-    Write-Host "Out-of-office message has been set for $identity in arcade-eng.com domain."
+    Write-Host "Out-of-office message has been set for $identity in $domain."
 }
 
-Write-Host "Out-of-office message has been set for all users in arcade-eng.com domain."
+Write-Host "Out-of-office message has been set for all users in $domain."
