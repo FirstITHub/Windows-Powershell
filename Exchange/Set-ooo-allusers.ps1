@@ -1,6 +1,4 @@
-$domain = Get-AcceptedDomain | Where-Object { $_.Default -eq $true }
-$usertoexclude = Read-Host "Welke Alias niet"
-$Mailboxes = Get-Mailbox -ResultSize Unlimited -RecipientTypeDetails UserMailbox | Where-Object { $_.alias -ne $usertoexclude }
+$Mailboxes = Get-Mailbox -ResultSize Unlimited -RecipientTypeDetails UserMailbox | Where-Object { $_.alias -ne "admin" }
 
 $Mailboxes | Select-Object DisplayName, UserPrincipalName, RecipientTypeDetails | Export-Csv -Path "C:\temp\File.csv" -NoTypeInformation
 
@@ -9,17 +7,11 @@ $Mailboxes | Select-Object DisplayName, UserPrincipalName, RecipientTypeDetails 
 $oomMessage = @"
 <html>
 <body>
----header line----
-<p></p>
----end of header line----
+<p>Beste,</p>
 <br>
----body------
-<p></p>
+<p>Het volledige Arcade team geniet van een deugddoend bouwverlof. <br> Onze kantoren zijn volledig gesloten vanaf maandag 10 juli tot en met vrijdag 28 juli. <br> Op maandag 31 juli organiseren wij onze jaarlijkse “Arcade-dag”. Dinsdag 1 augustus staan wij opnieuw klaar om uw vragen te beantwoorden.</p>
 <br>
-----end body -----
-----signature-----
 <p>Zonnige groeten,</p>
----- end signature -----
 </body>
 </html>
 "@
@@ -29,8 +21,8 @@ $endDate = Get-Date "2023-07-31 19:00:00"
 
 foreach ($mailbox in $Mailboxes){
     $identity = $mailbox.UserPrincipalName
-    Set-MailboxAutoReplyConfiguration -Identity $identity -AutoReplyState Scheduled -StartTime $startDate -EndTime $endDate -ExternalMessage $oomMessage
-    Write-Host "Out-of-office message has been set for $identity in $domain."
+    Set-MailboxAutoReplyConfiguration -Identity $identity -AutoReplyState Scheduled -StartTime $startDate -EndTime $endDate -ExternalMessage $oomMessage -InternalMessage $oomMessage
+    Write-Host "Out-of-office message has been set for $identity in arcade-eng.com domain."
 }
 
-Write-Host "Out-of-office message has been set for all users in $domain."
+Write-Host "Out-of-office message has been set for all users in arcade-eng.com domain."
