@@ -21,7 +21,7 @@ $endDate = Get-Date "2023-07-31 19:00:00"
 
 foreach ($mailbox in $Mailboxes){
     $identity = $mailbox.UserPrincipalName
-    Set-MailboxAutoReplyConfiguration -Identity $identity -AutoReplyState Scheduled -StartTime $startDate -EndTime $endDate -ExternalMessage $oomMessage -InternalMessage $oomMessage
+    Set-MailboxAutoReplyConfiguration -Identity $identity -AutoReplyState Scheduled -StartTime $startDate -EndTime $endDate -ExternalMessage $oomMessage
     Write-Host "Out-of-office message has been set for $identity in arcade-eng.com domain."
 }
 
