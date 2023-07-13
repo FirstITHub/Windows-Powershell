@@ -1,6 +1,24 @@
 $content = @' 
-@(“C:\Windows\Temp\*”, “C:\Windows\Prefetch\*”, “C:\Documents and Settings\*\Local Settings\temp\*”, “C:\Users\*\Appdata\Local\Temp\*”)
-Remove-Item $tempfolders -force -recurse
+@
+# Clear C:\Windows\Temp
+Remove-Item -Path "C:\Windows\Temp\*" -Force -Recurse
+
+# Clear C:\Windows\Prefetch
+Remove-Item -Path "C:\Windows\Prefetch\*" -Force -Recurse
+
+# Clear C:\Documents and Settings\*\Local Settings\temp
+$profiles = Get-ChildItem -Path "C:\Documents and Settings\" -Directory -Force
+foreach ($profile in $profiles) {
+    $tempPath = Join-Path -Path $profile.FullName -ChildPath "Local Settings\Temp\*"
+    Remove-Item -Path $tempPath -Force -Recurse
+}
+
+# Clear C:\Users\*\Appdata\Local\Temp
+$profiles = Get-ChildItem -Path "C:\Users\" -Directory -Force
+foreach ($profile in $profiles) {
+    $tempPath = Join-Path -Path $profile.FullName -ChildPath "AppData\Local\Temp\*"
+    Remove-Item -Path $tempPath -Force -Recurse
+}
 '@ 
  
  # create custom folder and write PS script 
