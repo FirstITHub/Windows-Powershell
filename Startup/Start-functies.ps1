@@ -26,9 +26,9 @@ $modulesToInstall | ForEach-Object {
     }
 }
 
-#This script is the first in line to start te powershell of First NV
+#This script is the first in line to start the powershell of First NV
 $null = (Connect-AzureAD)
-$null = (Connect-msolservice)
+$null = (Connect-PartnerCenter)
 #get-info of the logged in tenant
 $tenantname = (Get-AzureADTenantDetail).Displayname
 $tenantid = (Get-AzureADTenantDetail).objectid
