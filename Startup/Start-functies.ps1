@@ -12,7 +12,7 @@ $modulesToInstall = @(
     "MSGraph",
     "AzureADPreview",
     "ExchangeOnlineManagement",
-    "msonline"
+    "Partnercenter"
 )
 
 # Install modules if they are not already present
