@@ -26,37 +26,20 @@ Connect-MgGraph -TenantId 9d1b1b22-a9e0-4852-a110-fec4fd757c6e -Scopes "AuditLog
 
 # Set the start and end dates for the report (e.g., current month)
 
-$startDate = (Get-Date).AddMonths(-1).ToString("yyyy-MM-dd")
-
-$endDate = (Get-Date).ToString("yyyy-MM-dd")
-
-
-
 
 # Retrieve sign-in logs for the specified date range
 
-$signIns = Get-MgAuditLogSignIn -All -Filter "createdDateTime ge $startDate and createdDateTime le $endDate" |  Select-Object -Property UserDisplayName, UserPrincipalName, CreatedDateTime, @{Name="Country"; Expression={$_.Location.CountryOrRegion}}, @{Name="City"; Expression={$_.Location.City}}
-
-$count = $signins.count
-
-Write-Host "There are $count"
-
-# Filter for logins abroad and select relevant properties
-
-$signInsAbroad = $signIns | Where-Object { $_.Country -ne 'BE'}
-
-$countabroad = $signInsAbroad.count
-
-Write-Host "There are $countabroad"
+$auditLogs = Get-MgAuditLogSignIn -Filter "riskDetail eq 'RiskySignIn'"
 
 
+$auditLogs.value | Select-Object UserDisplayName, UserPrincipalName, IPAddress, RiskDetail, RiskLevel, RiskState
 
 
 # Export the sign-in logs to a CSV file
 
-$exportPath = "$env:OnedriveCommercial\Documenten\test.csv"
+$exportPath = "$env:OnedriveCommercial\Documenten\GroupSuerickx.csv"
 
-$signInsAbroad | Export-Csv -Path $exportPath -NoTypeInformation
+$auditLogs.value | Export-Csv -Path $exportPath -NoTypeInformation
 
 
 
