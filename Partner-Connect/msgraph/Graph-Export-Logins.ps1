@@ -43,7 +43,7 @@ Write-Host "There are $count"
 
 # Filter for logins abroad and select relevant properties
 
-$signInsAbroad = $signIns | Where-Object { $_.Country -ne 'BE' -or $_.Country -ne $null }
+$signInsAbroad = $signIns | Where-Object { $_.Country -ne 'BE'}
 
 $countabroad = $signInsAbroad.count
 
