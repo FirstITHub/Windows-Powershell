@@ -1,6 +1,7 @@
 # Install modules if they are not already present
 $modules = Get-Module
-
+$MaximumVariableCount = 8192
+$MaximumFunctionCount = 8192
 $modulesToInstall = @(
     "MSGraph",
     "Microsoft.Graph"
