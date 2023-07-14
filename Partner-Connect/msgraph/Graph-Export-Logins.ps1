@@ -39,18 +39,22 @@ $signIns = Get-MgAuditLogSignIn -Filter "createdDateTime ge $startDate and creat
 
 $count = $signins.count
 
-Write-Host = "There are $count"
+Write-Host "There are $count"
 
 # Filter for logins abroad and select relevant properties
 
 $signInsAbroad = $signIns | Where-Object -Property Country -ne 'BE'
+
+$countabroad = $signInsAbroad.count
+
+Write-Host "There are $countabroad"
 
 
 
 
 # Export the sign-in logs to a CSV file
 
-$exportPath = "$env:OnedriveCommercial\Documenten\TEST\test.csv"
+$exportPath = "$env:OnedriveCommercial\Documenten\test.csv"
 
 $signInsAbroad | Export-Csv -Path $exportPath -NoTypeInformation
 
