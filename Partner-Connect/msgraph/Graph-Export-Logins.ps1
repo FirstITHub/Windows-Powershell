@@ -35,7 +35,7 @@ $endDate = (Get-Date).ToString("yyyy-MM-dd")
 
 # Retrieve sign-in logs for the specified date range
 
-$signIns = Get-MgAuditLogSignIn -Filter "createdDateTime ge $startDate and createdDateTime le $endDate" |  Select-Object -Property UserDisplayName, UserPrincipalName, CreatedDateTime, @{Name="Country"; Expression={$_.Location.CountryOrRegion}}, @{Name="City"; Expression={$_.Location.City}}
+$signIns = Get-MgAuditLogSignIn -Filter -All "createdDateTime ge $startDate and createdDateTime le $endDate" |  Select-Object -Property UserDisplayName, UserPrincipalName, CreatedDateTime, @{Name="Country"; Expression={$_.Location.CountryOrRegion}}, @{Name="City"; Expression={$_.Location.City}}
 
 $count = $signins.count
 
