@@ -28,8 +28,8 @@ Connect-MgGraph -Scopes "AuditLog.Read.All"
 
 
 # Retrieve sign-in logs for the specified date range
+$auditLogs = Get-MgAuditLogSignIn -Filter "riskDetail/any(c:c eq 'RiskySignIn')"
 
-$auditLogs = Get-MgAuditLogSignIn -Filter "riskDetail eq 'RiskySignIn'"
 
 
 $auditLogs.value | Select-Object UserDisplayName, UserPrincipalName, IPAddress, RiskDetail, RiskLevel, RiskState
