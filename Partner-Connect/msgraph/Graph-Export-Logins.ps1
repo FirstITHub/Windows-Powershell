@@ -19,7 +19,7 @@ $modulesToInstall | ForEach-Object {
 }
 # Authenticate and connect to Microsoft Graph
 
-Connect-MgGraph -TenantId 9d1b1b22-a9e0-4852-a110-fec4fd757c6e -Scopes "AuditLog.Read.All"
+Connect-MgGraph -Scopes "AuditLog.Read.All"
 
 
 
@@ -54,7 +54,7 @@ Write-Host "There are $countabroad"
 
 # Export the sign-in logs to a CSV file
 
-$exportPath = "$env:OnedriveCommercial\Documenten\test.csv"
+$exportPath = "$env:OnedriveCommercial\Documenten\Vistalink.csv"
 
 $signInsAbroad | Export-Csv -Path $exportPath -NoTypeInformation
 
