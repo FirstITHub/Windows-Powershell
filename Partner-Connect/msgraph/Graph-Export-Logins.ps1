@@ -19,7 +19,7 @@ $modulesToInstall | ForEach-Object {
 }
 # Authenticate and connect to Microsoft Graph
 
-Connect-MgGraph -Scopes "AuditLog.Read.All"
+Connect-MgGraph -TenantID a9e40923-db78-4942-87b1-6be3e26fbb2e -Scopes "AuditLog.Read.All"
 
 
 
