@@ -10,7 +10,7 @@ $modulesToInstall | ForEach-Object {
     $moduleName = $_
     if ($moduleName -notin $modules) {
 # Install the required module (if not already installed)
-        Install-Module -Name $moduleName -AcceptLicense:$false -Confirm:$false
+        Install-Module -Name $moduleName -Confirm:$false
         import-module -name $modulename
     }
     else {
