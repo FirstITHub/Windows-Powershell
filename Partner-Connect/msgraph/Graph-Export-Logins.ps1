@@ -21,12 +21,11 @@ $modulesToInstall | ForEach-Object {
 $klant = Read-host "Wat is de klantnaam?"
 $tenantid = Read-host "Plak hier de tenant-id in van de klant"
 Connect-MgGraph -TenantID $tenantid -Scopes "AuditLog.Read.All"
-$monthsback = Read-host "Hoeveel maanden wil je terug?"
 
 
 # Set the start and end dates for the report (e.g., current month)
 
-$startDate = (Get-Date).AddMonths(-$monthsback).ToString("yyyy-MM-dd")
+$startDate = (Get-Date).AddMonths(-6).ToString("yyyy-MM-dd")
 
 $endDate = (Get-Date).ToString("yyyy-MM-dd")
 
