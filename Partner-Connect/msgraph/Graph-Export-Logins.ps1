@@ -21,7 +21,6 @@ $modulesToInstall | ForEach-Object {
 $klant = Read-host "Wat is de klantnaam?"
 $tenantid = Read-host "Plak hier de tenant-id in van de klant"
 Connect-MgGraph -TenantID $tenantid -Scopes "AuditLog.Read.All"
-Select-MgProfile "beta"
 
 
 # Set the start and end dates for the report (e.g., current month)
