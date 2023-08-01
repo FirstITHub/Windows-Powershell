@@ -18,6 +18,7 @@ $modulesToInstall | ForEach-Object {
 
 }
 # Authenticate and connect to Microsoft Graph
+$klant = Read-host "Wat is de klantnaam?"
 $tenantid = Read-host "Plak hier de tenant-id in van de klant"
 Connect-MgGraph -TenantID $tenantid -Scopes "AuditLog.Read.All"
 $monthsback = Read-host "Hoeveel maanden wil je terug?"
@@ -29,7 +30,7 @@ $startDate = (Get-Date).AddMonths(-$monthsback).ToString("yyyy-MM-dd")
 
 $endDate = (Get-Date).ToString("yyyy-MM-dd")
 
-
+$today = (Get-Date).ToString("yyyy-MM-dd")
 
 
 # Retrieve sign-in logs for the specified date range
@@ -53,7 +54,7 @@ Write-Host "There are $countabroad"
 
 # Export the sign-in logs to a CSV file
 
-$exportPath = "$env:OnedriveCommercial\Documenten\Vistalink.csv"
+$exportPath = "$env:OnedriveCommercial\Documenten\$klant-$today.csv"
 
 $signInsAbroad | Export-Csv -Path $exportPath -NoTypeInformation
 
