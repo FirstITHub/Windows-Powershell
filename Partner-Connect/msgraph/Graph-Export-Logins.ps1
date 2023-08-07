@@ -1,12 +1,16 @@
 #configuration options for App registered login to Azure for Graphs
 
-
-
+$appsecret = "" 
+$companyid = ""
+$applicationid = ""
 
 
 #Connecting parameters for sending
 
-
+$smtpserver = ""
+$smtpuser = ""
+$smtpass = ""
+$ports = ""
 
 
 # Install modules if they are not already present
