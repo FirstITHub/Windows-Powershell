@@ -25,7 +25,7 @@ Connect-MgGraph -TenantID $tenantid -Scopes "AuditLog.Read.All"
 
 # Set the start and end dates for the report (e.g., current month)
 
-$startDate = (Get-Date).AddMonths(-6).ToString("yyyy-MM-dd")
+$startDate = (Get-Date).AddMonths(-1).ToString("yyyy-MM-dd")
 
 $endDate = (Get-Date).ToString("yyyy-MM-dd")
 
