@@ -1,3 +1,14 @@
+#configuration options for App registered login to Azure for Graphs
+
+
+
+
+
+#Connecting parameters for sending
+
+
+
+
 # Install modules if they are not already present
 $modules = Get-Module
 
