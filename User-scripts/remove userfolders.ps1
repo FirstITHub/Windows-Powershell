@@ -1,4 +1,4 @@
-if ($env:COMPUTERNAME -eq "bnchv001") {
+if ($env:COMPUTERNAME -eq "HERETHESERVERNAMETOKEEP") {
     Write-Host "This script cannot be run on bnchv001."
 }
 else {
