@@ -67,7 +67,7 @@ Write-Host "There are $countabroad"
 
 # Export the sign-in logs to a CSV file
 
-$exportPath = "$env:OnedriveCommercial\Documenten\Vias-$today.csv"
+$exportPath = "C:\temp\Vias-$today.csv"
 
 $signInsAbroad | Export-Csv -Path $exportPath -NoTypeInformation
 
@@ -85,5 +85,3 @@ Write-Host "The sign-in logs for logins abroad in the last month have been expor
 
 Disconnect-MgGraph
 
-git config --global user.email "sjoerd@kanon.email"
-git config --global user.name "Sjoerd Kanon"
