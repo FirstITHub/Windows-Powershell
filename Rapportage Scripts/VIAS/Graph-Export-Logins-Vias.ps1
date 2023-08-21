@@ -11,7 +11,7 @@ $ClientSecretCredential = New-Object `
 -ArgumentList $ApplicationId, $SecuredPasswordPassword
 
 Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
-
+mkdir C:\temp -ErrorAction SilentlyContinue
 # Install modules if they are not already present
 $modules = Get-Module
 
