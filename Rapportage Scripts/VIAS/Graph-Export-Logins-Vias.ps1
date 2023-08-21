@@ -87,7 +87,7 @@ Disconnect-MgGraph
 
 # Sender's and recipient's email addresses
 $senderEmail = "rapport-logins@vias.be"
-$recipientEmail = "sjoerd.kanon@first.eu"
+$recipientEmail = "Karin.Genoe@vias.be"
 
 # Email subject and body
 $subject = "CSV Report - Succeeded logins of 1 month"
