@@ -10,7 +10,7 @@ $ClientSecretCredential = New-Object `
 -TypeName System.Management.Automation.PSCredential `
 -ArgumentList $ApplicationId, $SecuredPasswordPassword
 
-
+Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
 
 # Install modules if they are not already present
 $modules = Get-Module
@@ -85,3 +85,24 @@ Write-Host "The sign-in logs for logins abroad in the last month have been expor
 
 Disconnect-MgGraph
 
+# Sender's and recipient's email addresses
+$senderEmail = "rapport-logins@vias.be"
+$recipientEmail = "sjoerd.kanon@first.eu"
+
+# Email subject and body
+$subject = "CSV Report - Succeeded logins of 1 month"
+$body = @"
+<html>Hallo,</br></br>Hierbij het rapport voor de succesvolle logins</br></br></br>Dit bericht is via een automatische script verzonden</html>
+"@
+
+# SMTP server settings
+$smtpServer = "vias-be.mail.protection.outlook.com"
+$smtpPort = 25
+$smtpUsername = "your.smtp.username"
+$smtpPassword = "your.smtp.password"
+
+# Path to the CSV file
+$csvFilePath = "C:\path\to\your\file.csv"
+
+# Send the email with the CSV attachment
+Send-MailMessage -From $senderEmail -To $recipientEmail -Subject $subject -Body $body -BodyAsHtml -SmtpServer $smtpServer -Port $smtpPort -Attachments $exportPath
